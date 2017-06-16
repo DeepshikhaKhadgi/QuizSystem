@@ -1,0 +1,84 @@
+﻿<!--<div class="js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en">
+
+    <div class="login" ng-controller="LoginCtrl">
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="brand text-center">
+
+                        <div class="logo-icon1"></div>
+                        <h2>
+                            Online Test Tool
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                   <h4 style="color:red;text-align:center">{{timeOutMsg}}</h4>
+                   <h4 style="color:red;text-align:center">{{errorMsg}}</h4>
+                    <br />
+                   <h3 style="color:darkgreen;text-align:center">Test submitted successfully!!</h3>
+                    <br />
+
+                    <a  style="margin-left:85px;color:blue" ng-click="startAgain()">Start Again</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+
+<div class="js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en">
+
+    <div class="navbar navbar-default" id="navbar">
+
+        <div class="navbar-brand">
+            <i class="icon-beer1"></i>
+            <img class="toplogo" src="../contents/images/logo.png" />Online Test Tool
+        </div>
+
+        <!--<ul class="nav navbar-nav pull-right">
+
+            <li class="dropdown user">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <img class="loginuser-icon" src="../../contents/images/icon-user.png" alt="icon-user" />
+                    <strong>{{user.userName}}</strong>
+                    <img class="img-rounded" src="../../contents/images/logo.png" alt="logo" />
+                    <b class="caret"></b>
+                </a>
+            </li>
+        </ul>-->
+    </div>
+
+    <!--<div>
+        <i class="icon-beer1"></i>
+        <img class="toplogo" src="../contents/images/logo.png" /><b>Online Test Tool</b>
+    </div>-->
+
+    <div style="color:crimson;width:auto; height: 20px;" class="main page">
+        <h3 id="timeOutMsg" style="margin-top:50px; text-align: center">{{timeOutMsg}}</h3>
+    </div>
+
+
+
+    <div style="color:darkgreen;width:auto; height: 20px;" class="main page">
+        <h3 style="margin-top:200px; text-align: center; color:darkgreen">Test submitted successfully!!!</h3>
+    </div>
+
+    <div class="header-arrow" ng-click="startAgain()" style="margin-top:150px; margin-right: 640px; text-align:right">
+        <a style="color:darkblue" class="backtodashboard"><h4><img src="../../contents/images/arrow-left.png" />  Back to Start</h4></a>
+    </div>
+
+
+
+    <!--<div style="color:darkblue;margin-top:180px; text-align: left; width:auto; height: 20px;" class="header-arrow" ng-click="startAgain()">
+        <a >
+            <img src="../../contents/images/arrow-left.png" />
+            <h4 style="color:darkblue;margin-top: -30px; margin-left: 30px;">Start Again</h4>
+        </a>
+    </div>-->
+</div>
+
+
+<script src="../../scripts/blinkText.js"></script>

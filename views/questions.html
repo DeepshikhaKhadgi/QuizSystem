@@ -1,0 +1,171 @@
+﻿<div class="js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en">
+    <div class="main page" ng-controller="QuestionCtrl">
+        <!-- Navbar -->
+        <div class="navbar navbar-default" id="navbar">
+            <a class="navbar-brand" href="#">
+                <i class="icon-beer1"></i>
+                <img class="toplogo" src="../../contents/images/logo.png" />Online Test Tool
+            </a>
+            <ul class="nav navbar-nav pull-right">
+
+                <li class="dropdown user">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <img class="loginuser-icon" src="../../contents/images/icon-user.png" alt="icon-user" />
+                        <strong>{{user}}</strong>
+                        <img class="img-rounded" src="../../contents/images/logo.png" alt="logo" />
+                        <b class="caret"></b>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <section id="sidebar">
+                <i id="toggle"> <img class="img-rounded1" src="../../contents/images/menu-icon.png" width="28" height="28" alt="logo" /></i><i class="icon-dashboard1"></i>
+            </section>
+            <!-- Tools -->
+            <section id="tools">
+                <ul class="breadcrumb" id="breadcrumb">
+                    <li class="title">Start exam</li>
+
+                </ul>
+                <div id="toolbar">
+                    <div class="take-test">
+                    </div>
+                </div>
+            </section>
+            <!-- Content -->
+
+            <div id="content" ng-init="LoadQuestions()">
+                <div ng-repeat="question in filteredQuestions">
+                    <div class="top-item">
+                        <!--<div class="timerem"><b><span class="timecalc"/></b></div>-->
+
+                        <div ng-show="displaynormal" style="float:right; font-size:large;"><b>{{clock|date:'HH:mm:ss'}}</b></div>
+                        <div ng-show="notifyUser" id="notify" style="float:right; font-size:larger;"><b>{{clock|date:'HH:mm:ss'}}</b></div>
+                        <!--<div style="float:right;"><b>{{displayClock|date:'HH:mm:ss'}}</b>-->
+                        <div id="box" style="visibility:hidden; float:right;">
+                        </div>
+                          <div class="question-count">
+                            <b>  Item No:</b> {{currentPage}} of {{totalItems}}
+                        </div>
+                    </div>
+                    <div class="questions">
+                        <b>Question:</b><br>
+                        <p>
+                            {{currentPage}} )	{{question.QuestionDescription}}
+                        </p>
+                        <div class="options">
+                        <div ng-switch on="{{question.QuestionType.QuestionTypeID}}">
+
+                            <div ng-switch-when=1 ng-repeat="option in question.Options">
+                                <div>
+
+                                    <input id="{{option.OptionID}}" type="radio" ng-model="option.Selected" value="FALSE" ng-change="onSelect(question, option);" />
+                                    {{option.OptionDescription}}
+
+                                </div>
+                            </div>
+
+                            <div ng-switch-when=2 ng-repeat="option in question.Options">
+                                <div>
+
+                                    <input id="{{option.OptionID}}" type="checkBox" ng-model="option.Selected" />
+                                    {{option.OptionDescription}}
+
+                                </div>
+                            </div>
+                            <div ng-switch-when=3>
+                                <div>
+                                    <textarea id="{{question.Answer}}" ng-model="question.Answer" style="width:400px; height:100px"></textarea>
+                                    <!--<input id="{{question.Answer}}" type="text" ng-model="question.Answer" ng-change="onAnswer(question, question.Answer)" />-->
+                                    <!--<input id="{{option.OptionID}}" type="text" ng-model="option.Selected" ng-change="onSelect(question, option);" />
+                                    {{option.OptionDescription}}-->
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <br>
+
+                    </div>
+
+
+                </div>
+                <div>
+                    <div class="btn-previous">
+                        <a class="btn-test finish" ng-show="showSubmit()" id="submitBtn" ng-click="onNext(currentPage+1, $event, false)" ng-confirm-click="Press Ok to Submit or Cancel To Recheck"> Complete </a>
+                    </div>
+
+                    <div class="btn-next">
+                        <div ng-show="showNext()" class="btn-test" id="nextBtn" ng-click="goTo(currentPage + 1); onNext(currentPage, $event, false)"> Next </div>
+                    </div>
+
+                    <div class="btn-previous">
+                        <div ng-show="showPrevious()" class="btn-test" ng-click="goTo(currentPage - 1); onNext(currentPage + 2, $event, false)"> Previous </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <!-- Footer -->
+        </div>
+
+
+        <!-- Google Analytics -->
+
+        <script>
+
+            var col = new String();
+            var x = 1; var y;
+
+            function blink() {
+                if (x % 2) {
+                    col = "rgb(255,0,0)";
+                } else {
+                    col = "rgb(255,255,255)";
+                }
+
+                $('#notify').css('color', col); x++; if (x > 2) { x = 1 }; setTimeout("blink()", 500);
+            }
+
+
+            $(document).ready(function () {
+                blink();
+            })
+
+        </script>
+
+
+
+
+
+        <!--<script>
+              var start = new Date;
+              var minutes= start.getMinutes();
+
+            $('.timecalc').timer({
+            duration: '45m00s',
+            //format: '%H:%M:%S',
+            format: '%M minutes %s seconds',
+            callback: function() {
+                alert('only 5 minutes left!');
+            }
+        });
+        var timecall =0 ;
+        var totaltime =2400;
+         setInterval(function() {
+         timecall = $('.timecalc').data('seconds');
+         if (timecall == 2400) {
+           window.location = "start-test.html";
+         }
+          }, 1000);
+
+                </script>-->
+    </div>
+
+</div>

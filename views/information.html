@@ -1,0 +1,101 @@
+﻿<div class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en">
+    <div class="main page" ng-controller="InformationCtrl">
+        <!-- Navbar -->
+        <div class="navbar navbar-default" id="navbar">
+
+            <div class="navbar-brand">
+                <i class="icon-beer1"></i>
+                <img class="toplogo" src="../contents/images/logo.png" />Online Test Tool
+            </div>
+
+            <ul class="nav navbar-nav pull-right">
+
+                <li class="dropdown user">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <img class="loginuser-icon" src="../../contents/images/icon-user.png" alt="icon-user" />
+                        <strong>{{user.userName}}</strong>
+                        <img class="img-rounded" src="../../contents/images/logo.png" alt="logo" />
+                        <b class="caret"></b>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <section id="sidebar">
+                <i id="toggle"> <img class="img-rounded1" src="../../contents/images/menu-icon.png" width="28" height="28" alt="logo" /></i><i class="icon-dashboard1"></i>
+                <ul id="dock">
+                    <li class="active launcher">
+                        <i class="icon-dashboard1"></i>  <img class="img-rounded" src="../../contents/images/dashboard-icon.png" width="42" height="42" alt="logo" />
+                        <a ng-click="backToDashboard()">Dashboard</a>
+                    </li>
+                    <li class="launcher" style="display:none">
+                        <i class="icon-dashboard1"></i> <img class="img-rounded" src="../../contents/images/exam-icon.png" width="42" height="42" alt="logo" />
+                        <a href="start-test.html">Select Exam </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- Tools -->
+            <section id="tools">
+                <ul class="breadcrumb" id="breadcrumb">
+                    <li class="title">Start exam</li>
+
+                </ul>
+                <div id="toolbar">
+                    <div class="take-test">
+                    </div>
+                </div>
+            </section>
+            <!-- Content -->
+            <div id="content">
+
+                <div class="exam-text" style="color:crimson" ng-show="timeOutMsg != ''"><h3>{{timeOutMsg}}</h3></div>
+
+                <div class="exam-text" style="color:crimson"><h3>{{errorMsg}}</h3></div>
+
+                <div class="right-content">
+                    <div class="right-content-title">Test Contents</div>
+                    <div class="exam-content">
+                        <ul>
+                            <li> Security </li>
+                            <li>SQL/join/StoreProcedure/Trigger </li>
+                            <li> Deployment </li>
+                            <li> Authentication & Authorization </li>
+                            <li> URL Routing and areas </li>
+                            <li> Views, Model and controller  </li>
+                            <li>Language features  </li>
+                            <li>MVC Basics</li>
+                            <li> MVC Pattern </li>
+                            <li>Jquery & Ajax  </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="align-content">
+                    <div class="header-arrow" ng-click="backToDashboard()">
+                        <a class="backtodashboard"><h4><img src="../../contents/images/arrow-left.png" />  Back to Dashboard</h4></a>
+                    </div>
+                    <div class="exam-heading"><h2>TECHNICAL OBJECTIVE QUESTION </h2></div>
+                    <div class="exam-text"><p> This test is about 40 multiple choice questions and should take less than 40 minutes to complete                            </p></div>
+                    <h2 id="secondheading">Instructions:</h2>
+
+                    <ul>
+                        <li>  Each question has between 2 and 8 options. One or more answers may be correct.</li>
+
+                        <li>  Attempt all questions since there are no penalties for incorrect answers.</li>
+
+                        <li>  Your time remaining is shown in the top of the test window.</li>
+
+                        <li>  If you leave the test midway through your session, you can resume it where you left off by returning to this page.</li>
+                    </ul>
+                    <div>
+                        <a class="btn-test" ng-click="startTest()"> Start Test </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+        </div>
+
+
+    </div>
+
+</div>
